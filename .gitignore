@@ -1,4 +1,13 @@
+# Node modules
 node_modules
-e2e/plugins
-package-lock.json
+
+# Cypress
+cypress/downloads
+cypress/screenshots
+cypress/videos
+
+# VS Code settings
 .vscode
+
+# macOS system files
+.DS_Store

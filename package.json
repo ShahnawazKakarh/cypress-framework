@@ -6,9 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+   "keywords": [
+    "cypress",
+    "testing",
+    "data-generator",
+    "faker"
+  ],
   "author": "Shahnawaz-Khan",
   "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^9.0.3"
+  },
   "devDependencies": {
-    "cypress": "^14.3.3"
+    "cypress": "^14.3.3",
+    "cypress-xpath": "^2.0.1"
   }
 }

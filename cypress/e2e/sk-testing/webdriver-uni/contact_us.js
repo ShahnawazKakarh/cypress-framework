@@ -25,7 +25,7 @@ describe("Test Contact Us form via WebdriverUni", () => {
         cy.get('body')
             // This assertion helps avoid flakiness in your test scripts by ensuring that the element is present in the DOM
           .should('be.visible') // Check if the body element is visible in DOM
-          .and('contain.text', '\n\n\n Error: all fields are required\n Error: Invalid email address\n\n\n'); // Check if it contains the expected bank name
+          .and('contain.text', '\n\n\n Error: all fields are required\n Error: Invalid email address\n\n\n'); // Check if it contains the expected email address
         
     });
 })
