@@ -30,12 +30,12 @@ describe("Test Contact Us form via Online Test Store", () => {
             cy.get('#ContactUsFrm_email').type("joe_blogs@example.com");
             cy.get('#ContactUsFrm_enquiry').type("Do you provide additional discount on bulk orders?");
             cy.get('.col-md-6 > .btn').click();
+            cy.get('.mb40 > :nth-child(3)').should('have.text', 'Your enquiry has been successfully sent to the store owner!');
 
             cy.get('body')
             // This assertion helps avoid flakiness in your test scripts by ensuring that the element is present in the DOM
           .should('be.visible') // Check if the body element is visible in DOM
           .and('contain.text', 'Your enquiry has been successfully sent to the store owner!'); // Check if it contains the expected success message
-          
 
         });
     });
