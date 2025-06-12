@@ -7,11 +7,25 @@ describe("Test Contact Us form via WebdriverUni", () => {
         // class with dot
         // hash # with id
         // square brackets [] for any other div element
+
+        // assertion of web page document having utf-8 property
+        cy.document().should('have.property', 'charset').and('eq', 'UTF-8');
+
+        // assertion of title with have.text
+        // cy.title().should('have.text', 'WebDriver | Contact Us');
+
+        // assertion of title with include
+        cy.title().should('include', 'WebDriver | Contact Us');
+
+        // assertion of url
+        cy.url().should('include', 'contactus');
+
         cy.get('[name="first_name"]').type("Joe");
         cy.get('[name="last_name"]').type("Bidden");
         cy.get('[name="email"]').type("xyz@gmail.com");
         cy.get('textarea.feedback-input').type("This is a feedback section");
         cy.get('[type="submit"]').click();
+        cy.get('h1').should('have.text', 'Thank You for your Message!')
         
     });
 
