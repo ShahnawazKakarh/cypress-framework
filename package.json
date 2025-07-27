@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-   "keywords": [
+  "keywords": [
     "cypress",
     "testing",
     "data-generator",
@@ -15,9 +15,11 @@
   "author": "Shahnawaz-Khan",
   "license": "ISC",
   "dependencies": {
-    "@faker-js/faker": "^9.0.3"
+    "@faker-js/faker": "^9.0.3",
+    "cypress-real-events": "^1.14.0"
   },
   "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.3.0",
     "cypress": "^14.3.3",
     "cypress-xpath": "^2.0.1"
   }

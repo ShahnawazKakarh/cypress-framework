@@ -1,16 +1,73 @@
 /// <reference types="cypress" />
 
-describe("Test Dropdown Menu(s), Checkboxe(s) & Radio Button(s), via WebdriverUni", () => {
-    it("Should be able to play with mouse with a successful click and selection", () => {
+describe("Test Mouse Actions, via WebdriverUni", () => {
+    it("I should be able to drag and drop a dropable item", () => {
         //cypress code
         cy.visit("https://www.webdriveruniversity.com/")
-        cy.xpath('//*[@id="dropdown-checkboxes-radiobuttons"]/div/div[1]/h1').click()
 
-        // Confirm page loaded
-        // cy.contains("/Dropdown-Checkboxes-RadioButtons")
+        // invoking to open the Mouse Page on same tab
+        cy.get('#actions').scrollIntoView().invoke('removeAttr', 'target').click({force:true})
 
         // Wait for the page to load
         cy.wait(2000);
+
+        // it will click on the element and keep it
+        cy.get('#draggable > p > b').trigger('mousedown', {which: 1});
+
+        // it will move the mouse and drop it on droppable item
+        cy.get('#droppable > p').trigger('mousemove').trigger('mouseup', {force:true})
+
+
+    });
+
+    it("Double Mouse Click Example", () => {
+        //cypress code
+        cy.visit("https://www.webdriveruniversity.com/")
+
+        // invoking to open the Mouse Page on same tab
+        cy.get('#actions').scrollIntoView().invoke('removeAttr', 'target').click({force:true})
+
+        // Wait for the page to load
+        cy.wait(2000);
+
+        // it will click on the element and keep it
+        cy.get('#double-click').dblclick();
+
+
+    });
+
+    it("Able to hold down the left mouse click button on a given element, Example", () => {
+        //cypress code
+        cy.visit("https://www.webdriveruniversity.com/")
+
+        // invoking to open the Mouse Page on same tab
+        cy.get('#actions').scrollIntoView().invoke('removeAttr', 'target').click({force:true})
+
+        // Wait for the page to load
+        cy.wait(2000);
+
+        // it will click on the element and keep it
+        cy.get('#click-box').trigger('mousedown', {which: 1}).then(($element) => {
+            expect($element).to.have.css('background-color', 'rgb(0, 255, 0')
+        })
+
+    });
+
+    it.only("Dropdown Selection specific, Automation", () => {
+        //cypress code
+        cy.visit("https://www.webdriveruniversity.com/Actions/index.html")
+
+        // Wait for the page to load
+        cy.wait(2000);
+
+         // it will click on the element and keep it
+        // cy.get('#draggable > p > b').trigger('mousedown', {which: 1});
+
+        // it will move the mouse and drop it on droppable item
+        // cy.get('#droppable > p').trigger('mousemove').trigger('mouseup', {force:true})
+
+        // cy.get('.sourceitem').drag('.targetitem')
+        cy.get("#draggable > p > b").drag('#droppable > p', {force:true})
 
 
     });
